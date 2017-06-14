@@ -1,6 +1,7 @@
 <html>
 <body>
 <script type="text/javascript">
+    /*-----Class Expression-----*/
 class Rectangle {
   constructor(height, width) {
     this.height = height;
@@ -19,6 +20,91 @@ class Rectangle {
 const square = new Rectangle(10, 10);
 
 console.log(square.area);
+    /*-----End-----*/
+    /*---subclassing inheritance using classes------*/
+    class Animal { 
+  constructor(name) {
+    this.name = name;
+  }
+  
+  speak() {
+    console.log(this.name + ' makes a noise.');
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+    console.log(this.name + ' barks.');
+  }
+    roll(){
+        console.log(this.name + ' rolls now');
+    }
+}
+
+var d = new Dog('Mitzie');
+d.roll(); // Mitzie barks.
+    /*-----End-----*/
+    /*-----Super keyword-----*/
+    class Cat { 
+  constructor(name) {
+    this.name = name;
+  }
+  
+  speak() {
+    console.log(this.name + ' makes a noise.');
+  }
+}
+
+class Lion extends Cat {
+  speak() {
+    super.speak();
+    console.log(this.name + ' roars.');
+  }
+}
+
+var l = new Lion('Fuzzy');
+l.speak(); 
+    /*-----End-----*/
+    /*-----Object Literals-----*/
+    var sales = 'Toyota';
+
+function carTypes(name) {
+  if (name === 'Honda') {
+    return name;
+  } else {
+    return "Sorry, we don't sell " + name + ".";
+  }
+}
+
+var car = { myCar: 'Saturn', getCar: carTypes('Toyota'), special: sales };
+
+console.log(car.myCar);   // Saturn
+console.log(car.getCar);  // Honda
+console.log(car.special); // Toyota
+    
+    
+    var foo = {a: 'alpha', 2: 'two'};
+console.log(foo.a);    // alpha
+console.log(foo[2]);   // two
+//console.log(foo.2);  // Error: missing ) after argument list
+//console.log(foo[a]); // Error: a is not defined
+console.log(foo['a']); // alpha
+console.log(foo['2']); // two
+    /*-----End-----*/
+    
+    /*-----strings-----*/
+    // Basic literal string creation
+
+
+// Multiline strings
+`In JavaScript template strings can run
+ over multiple lines, but double and single
+ quoted strings cannot.`
+
+// String interpolation
+var name = 'Bob', time = 'today';
+console.log(`Hello ${name}, how are you ${time}?`);
+/*-----End-----*/
 </script>
 </body>
 </html>
